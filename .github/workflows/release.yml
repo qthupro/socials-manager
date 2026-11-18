@@ -35,6 +35,40 @@ jobs:
         with:
           tagName: v__VERSION__
           releaseName: Social Manager v__VERSION__
-          releaseBody: See CHANGELOG.md for details.
+          releaseBody: |
+            ## Social Manager — Phần mềm quản lý Fanpage đa tài khoản
+
+            Tự động đăng bài, hẹn giờ, gom tin nhắn và bình luận về một chỗ, trả lời bằng AI.
+
+            ### ⬇️ Tải về
+
+            Chọn file ở mục **Assets** bên dưới: **`…_x64-setup.exe`** (khuyên dùng) hoặc `…_x64_en-US.msi`.
+
+            ### 💻 Yêu cầu
+
+            - Windows 10 / 11 (64-bit), có kết nối Internet
+            - **Không cần** cài Node.js, Rust hay phần mềm nào khác
+
+            ### 🛠️ Cài đặt
+
+            1. Chạy file `Social.Manager_…_x64-setup.exe` vừa tải.
+            2. Nếu Windows hiện **"Windows protected your PC"**: bấm **More info → Run anyway**.
+               (Bản cài chưa có chữ ký số nên Windows cảnh báo — app an toàn, mã nguồn công khai ngay tại repo này.)
+            3. Bấm **Next** đến khi xong, mở app từ Start Menu hoặc Desktop.
+
+            ### 🚀 Bắt đầu dùng
+
+            Mở mục **Hướng dẫn sử dụng** trong app và làm theo 4 bước:
+
+            1. Nhập **API key SocialAPI** (đăng ký tại social-api.ai)
+            2. **Kết nối** Fanpage / tài khoản mạng xã hội
+            3. Nhập **API key AI** (Claude, ChatGPT, Gemini, DeepSeek…)
+            4. Bật **Realtime** qua Convex (miễn phí) để nhận tin nhắn tức thì
+
+            Mọi key và dữ liệu chỉ lưu trên máy bạn. Không cần đăng ký tài khoản app.
+
+            ---
+
+            Thay đổi trong bản này: xem [CHANGELOG.md](https://github.com/qthupro/socials-manager/blob/main/CHANGELOG.md).
           releaseDraft: true
           prerelease: false
