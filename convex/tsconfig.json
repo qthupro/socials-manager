@@ -1,0 +1,17 @@
+{
+  /* Backend deployed to each user's own Convex deployment (see scripts/build-convex.mjs). */
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ES2022", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    /* `process.env` (deployment environment variables). */
+    "types": ["node"],
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "isolatedModules": true
+  },
+  "include": ["./**/*"],
+  "exclude": ["./_generated"]
+}

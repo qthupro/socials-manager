@@ -1,0 +1,5 @@
+dist
+src-tauri
+pnpm-lock.yaml
+CHANGELOG.md
+src/features/realtime/backend/push-request.json

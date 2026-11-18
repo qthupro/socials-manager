@@ -1,0 +1,176 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  /* Primary is neutral: near-black on the white surface. */
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  /* Charts (dataviz reference palette; validated vs light #fcfcfb / dark #1a1a19). */
+  --viz-series: #2a78d6;
+  --viz-grid: #e1e0d9;
+  --viz-axis: #c3c2b7;
+  --viz-delta-up: #006300;
+  --viz-delta-down: #d03b3b;
+  /* Solid stat tiles (dashboard): cool hues, white text ≥ 4.5:1 on each. */
+  --tile-blue: #2563eb;
+  --tile-indigo: #4f46e5;
+  --tile-teal: #0f766e;
+  --tile-cyan: #0e7490;
+}
+
+/*
+ * Dark: Zalo Desktop-style blue-grey surfaces (not pure black/grey) — the main area is
+ * the darkest panel, lists / cards a step lighter, menus another step; text is a soft
+ * off-white so long reading isn't harsh.
+ */
+.dark {
+  --viz-series: #3987e5;
+  --viz-grid: #2a2e35;
+  --viz-axis: #383d45;
+  --viz-delta-up: #0ca30c;
+  --viz-delta-down: #e66767;
+  /* One step deeper so the tiles don't glare on the dark surfaces. */
+  --tile-blue: #1d4ed8;
+  --tile-indigo: #4338ca;
+  --tile-teal: #115e59;
+  --tile-cyan: #155e75;
+  --background: #17191d;
+  --foreground: #e4e6eb;
+  --card: #212328;
+  --card-foreground: #e4e6eb;
+  --popover: #272a30;
+  --popover-foreground: #e4e6eb;
+  /* Primary is neutral: the soft off-white text colour, with dark text on it. */
+  --primary: #e4e6eb;
+  --primary-foreground: #17191d;
+  --secondary: #2b2e34;
+  --secondary-foreground: #e4e6eb;
+  /* Hover / selected rows, chips, inactive bubbles. */
+  --muted: #2b2e34;
+  --muted-foreground: #9da3ae;
+  --accent: #2b2e34;
+  --accent-foreground: #e4e6eb;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: #2f333a;
+  --input: #383c44;
+  --ring: #6b7280;
+  /* Navigation rail: the deepest surface, like Zalo's left bar. */
+  --sidebar: #131518;
+  --sidebar-foreground: #d5d8de;
+  --sidebar-primary: #e4e6eb;
+  --sidebar-primary-foreground: #17191d;
+  --sidebar-accent: #24272d;
+  --sidebar-accent-foreground: #e4e6eb;
+  --sidebar-border: #24272d;
+  --sidebar-ring: #6b7280;
+}
+
+@theme inline {
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    /* Thin, theme-aware scrollbars instead of the native white ones. */
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  /* Tailwind v4 dropped the pointer cursor on buttons; restore it for everything clickable. */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [role="menuitem"]:not([data-disabled]),
+  [role="option"]:not([data-disabled]),
+  [role="tab"],
+  [role="switch"],
+  [role="checkbox"],
+  a[href],
+  select,
+  summary,
+  label[for] {
+    cursor: pointer;
+  }
+  html,
+  body,
+  #root {
+    @apply h-full;
+  }
+  /* Desktop-app feel: no text selection or dragging of UI content… */
+  body {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  img,
+  a {
+    -webkit-user-drag: none;
+  }
+  /* …except where the user types. */
+  input,
+  textarea,
+  [contenteditable="true"] {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    /* Desktop app: no rubber-band scrolling, no text selection on chrome */
+    overscroll-behavior: none;
+  }
+}
