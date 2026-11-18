@@ -139,7 +139,9 @@ export function WebhookFormDialog({
         <p className="text-xs text-muted-foreground">
           Dùng secret này làm khoá HMAC-SHA256 để kiểm tra header{" "}
           <code className="font-mono">X-SocialAPI-Signature-V2</code> ={" "}
-          <code className="font-mono">sha256=hex(HMAC(secret, "&lt;timestamp&gt;.&lt;raw body&gt;"))</code>
+          <code className="font-mono">
+            sha256=hex(HMAC(secret, "&lt;timestamp&gt;.&lt;raw body&gt;"))
+          </code>
           . Mất secret thì phải tạo endpoint mới và xoá endpoint cũ.
         </p>
       </SecretRevealDialog>

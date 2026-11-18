@@ -273,7 +273,9 @@ function EndpointDetail({
   const toggleActive = async (on: boolean) => {
     try {
       await update.mutateAsync({ id: webhook.id, patch: { is_active: on } });
-      toast.success(on ? "Đã bật endpoint" : "Đã tắt endpoint — sự kiện trong lúc tắt sẽ không được gửi bù");
+      toast.success(
+        on ? "Đã bật endpoint" : "Đã tắt endpoint — sự kiện trong lúc tắt sẽ không được gửi bù",
+      );
     } catch (err) {
       toast.error(getErrorMessage(err));
     }
@@ -312,7 +314,12 @@ function EndpointDetail({
                 />
                 <ConfirmDialog
                   trigger={
-                    <Button variant="ghost" size="icon-sm" aria-label="Xoá" className="text-destructive">
+                    <Button
+                      variant="ghost"
+                      size="icon-sm"
+                      aria-label="Xoá"
+                      className="text-destructive"
+                    >
                       <Trash2 />
                     </Button>
                   }
@@ -365,8 +372,16 @@ function EndpointDetail({
         <div className="grid gap-3 sm:grid-cols-2">
           {d ? (
             <>
-              <StatCard label="24 giờ qua" ok={d.stats.last_24h.delivered} fail={d.stats.last_24h.failed} />
-              <StatCard label="7 ngày qua" ok={d.stats.last_7d.delivered} fail={d.stats.last_7d.failed} />
+              <StatCard
+                label="24 giờ qua"
+                ok={d.stats.last_24h.delivered}
+                fail={d.stats.last_24h.failed}
+              />
+              <StatCard
+                label="7 ngày qua"
+                ok={d.stats.last_7d.delivered}
+                fail={d.stats.last_7d.failed}
+              />
             </>
           ) : (
             <>

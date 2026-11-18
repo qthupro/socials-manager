@@ -138,8 +138,7 @@ export function useTestWebhook() {
       eventType: string;
       payload: Record<string, unknown>;
     }) => api.post<TestDeliveryResult>(`${path(id)}/test`, { event_type: eventType, payload }),
-    onSuccess: (_, { id }) =>
-      qc.invalidateQueries({ queryKey: ["webhooks", "deliveries", id] }),
+    onSuccess: (_, { id }) => qc.invalidateQueries({ queryKey: ["webhooks", "deliveries", id] }),
   });
 }
 

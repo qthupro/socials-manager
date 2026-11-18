@@ -8,7 +8,8 @@ import type { EventsFilter, EventsPage, EventsSummary } from "./types";
 export const eventKeys = {
   all: ["dev-events"] as const,
   list: (f: EventsFilter) => ["dev-events", "list", f] as const,
-  summary: (from?: string, to?: string) => ["dev-events", "summary", from ?? null, to ?? null] as const,
+  summary: (from?: string, to?: string) =>
+    ["dev-events", "summary", from ?? null, to ?? null] as const,
 };
 
 const PAGE_SIZE = 50;

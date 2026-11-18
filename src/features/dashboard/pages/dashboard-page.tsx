@@ -142,7 +142,10 @@ function DashboardContent() {
     [range],
   );
   // Event log takes RFC3339: start of the first local day.
-  const eventsFrom = useMemo(() => new Date(`${params.from}T00:00:00`).toISOString(), [params.from]);
+  const eventsFrom = useMemo(
+    () => new Date(`${params.from}T00:00:00`).toISOString(),
+    [params.from],
+  );
   const overview = useAnalyticsOverview(params);
   const data = overview.data;
 

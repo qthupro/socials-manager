@@ -175,8 +175,7 @@ function ApiKeysContent() {
   );
 
   // Key management needs a full-access key; a scoped key gets 403 insufficient_scope.
-  const scopedKey =
-    keys.error instanceof ApiError && keys.error.code === "auth.insufficient_scope";
+  const scopedKey = keys.error instanceof ApiError && keys.error.code === "auth.insufficient_scope";
 
   return (
     <div className="space-y-5">

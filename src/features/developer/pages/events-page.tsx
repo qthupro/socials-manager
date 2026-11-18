@@ -102,7 +102,11 @@ function SummaryCards({ summary }: { summary: EventsSummary }) {
               change >= 0 ? "text-green-700 dark:text-green-400" : "text-muted-foreground",
             )}
           >
-            {change >= 0 ? <TrendingUp className="size-3.5" /> : <TrendingDown className="size-3.5" />}
+            {change >= 0 ? (
+              <TrendingUp className="size-3.5" />
+            ) : (
+              <TrendingDown className="size-3.5" />
+            )}
             {change >= 0 ? "+" : ""}
             {change.toFixed(0)}% so với kỳ trước
           </p>
@@ -209,10 +213,10 @@ function EventSheet({
           : []),
         ...(event.error_category
           ? [
-              [
-                "Loại lỗi",
-                ERROR_CATEGORY_LABEL[event.error_category] ?? event.error_category,
-              ] as [string, string],
+              ["Loại lỗi", ERROR_CATEGORY_LABEL[event.error_category] ?? event.error_category] as [
+                string,
+                string,
+              ],
             ]
           : []),
       ]
@@ -294,7 +298,8 @@ function EventsContent() {
   const categories = [
     ...new Set([...Object.keys(CATEGORY_LABEL), ...Object.keys(summary.data?.by_category ?? {})]),
   ];
-  const filtered = category !== ALL || status !== ALL || platform !== ALL || accountId !== ALL || !!action;
+  const filtered =
+    category !== ALL || status !== ALL || platform !== ALL || accountId !== ALL || !!action;
 
   const refresh = () => {
     setFrom(isoDaysAgo(Number(range)));
@@ -341,7 +346,9 @@ function EventsContent() {
               title="Làm mới"
               onClick={refresh}
             >
-              <RefreshCw className={cn((events.isFetching || summary.isFetching) && "animate-spin")} />
+              <RefreshCw
+                className={cn((events.isFetching || summary.isFetching) && "animate-spin")}
+              />
             </Button>
           </>
         }

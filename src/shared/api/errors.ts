@@ -109,7 +109,7 @@ const MESSAGES: Record<string, string> = {
   "publishing.media.untyped_url": "Không nhận ra loại tệp của link ảnh / video.",
   "publishing.media.unsupported_source": "Kênh này không nhận kiểu media đã chọn.",
   // Developer: webhooks / keys / events
-  "webhook_verification_failed": "SocialAPI không gọi được URL webhook — kiểm tra URL và server.",
+  webhook_verification_failed: "SocialAPI không gọi được URL webhook — kiểm tra URL và server.",
   "validation.body_invalid": "Dữ liệu gửi lên không hợp lệ.",
   "validation.scope_invalid": "Có scope không hợp lệ.",
   "validation.brand_invalid": "Có thương hiệu không hợp lệ hoặc không thuộc tài khoản.",

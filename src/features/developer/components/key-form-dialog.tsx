@@ -227,8 +227,16 @@ export function KeyFormDialog({
             value={brandMode}
             onChange={setBrandMode}
             options={[
-              { value: "all", label: "Mọi thương hiệu", hint: "Thấy mọi tài khoản, bài, hội thoại." },
-              { value: "some", label: "Chỉ một số", hint: "Như thể chỉ có các thương hiệu đã chọn." },
+              {
+                value: "all",
+                label: "Mọi thương hiệu",
+                hint: "Thấy mọi tài khoản, bài, hội thoại.",
+              },
+              {
+                value: "some",
+                label: "Chỉ một số",
+                hint: "Như thể chỉ có các thương hiệu đã chọn.",
+              },
             ]}
           />
           {brandMode === "some" && (

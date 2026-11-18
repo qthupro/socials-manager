@@ -117,8 +117,7 @@ function MessagesContent() {
   const showHandoff = botEnabled || handoffIds.length > 0;
   const view: ListFilter = filter === "handoff" && !showHandoff ? "all" : filter;
   const missingIds = useMemo(
-    () =>
-      view === "handoff" ? handoffIds.filter((id) => !all.some((c) => c.id === id)) : [],
+    () => (view === "handoff" ? handoffIds.filter((id) => !all.some((c) => c.id === id)) : []),
     [view, handoffIds, all],
   );
   const fetched = useConversationsById(missingIds);

@@ -5,7 +5,9 @@
 //! its logo in the bottom-right corner (like Telegram), in dev and when installed, and
 //! clicking one brings the window back. Other platforms use the notification plugin.
 
-use tauri::{AppHandle, Manager};
+use tauri::AppHandle;
+#[cfg(windows)]
+use tauri::Manager;
 
 #[cfg(windows)]
 const ICON_PNG: &[u8] = include_bytes!("../icons/128x128@2x.png");
@@ -34,6 +36,7 @@ pub fn register(_app: &AppHandle) -> Result<(), Box<dyn std::error::Error>> {
 }
 
 /// Emitted when a toast is clicked; payload = the in-app path it should open (if any).
+#[cfg(windows)]
 pub const CLICKED_EVENT: &str = "notification://clicked";
 
 /// Shows a notification. `link` is an in-app route (e.g. "/inbox/messages?c=…") opened
