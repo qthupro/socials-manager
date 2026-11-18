@@ -20,14 +20,11 @@ jobs:
       - run: pnpm format:check
       - run: pnpm build
 
+  # The app ships for Windows only, so lint the Rust side on Windows.
   rust:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install Linux dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: clippy, rustfmt
@@ -36,6 +33,7 @@ jobs:
           workspaces: src-tauri -> target
       # tauri::generate_context! needs the frontend dist folder to exist.
       - run: mkdir -p dist
+        shell: bash
       - run: cargo fmt --check
         working-directory: src-tauri
       - run: cargo clippy -- -D warnings

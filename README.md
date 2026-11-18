@@ -5,11 +5,8 @@ Không login, không backend — dữ liệu lưu trong `localStorage` của app
 
 ## Tải về
 
-Tải bản mới nhất ở trang [Releases](https://github.com/qthupro/socials-manager/releases/latest):
-
-- **Windows:** `Social.Manager_x.y.z_x64-setup.exe` (khuyên dùng) hoặc `.msi`
-- **macOS:** `.dmg` (`aarch64` cho Apple Silicon, `x64` cho Intel)
-- **Linux:** `.AppImage`, `.deb` hoặc `.rpm`
+App chỉ hỗ trợ **Windows 10/11 (64-bit)**. Tải bản mới nhất ở trang [Releases](https://github.com/qthupro/socials-manager/releases/latest):
+`Social.Manager_x.y.z_x64-setup.exe` (khuyên dùng) hoặc `.msi`.
 
 > Nếu Windows hiện **"Windows protected your PC"**: bấm **More info → Run anyway**. Cảnh báo này xuất hiện
 > vì bản cài chưa được ký số; dự án đang đăng ký ký số miễn phí qua SignPath Foundation.
@@ -131,7 +128,7 @@ Khi đổi cấu trúc dữ liệu đã lưu: tăng `version` và viết `migrat
 3. `git commit -am "chore: release v0.2.0"`
 4. `git tag v0.2.0 && git push && git push origin v0.2.0`
 
-GitHub Actions (`.github/workflows/release.yml`) sẽ build installer Windows / macOS / Linux và tạo **draft release**. Vào tab Releases kiểm tra rồi bấm Publish.
+GitHub Actions (`.github/workflows/release.yml`) sẽ build installer Windows (`.exe` + `.msi`) và tạo **draft release**. Vào tab Releases kiểm tra rồi bấm Publish.
 
 Quy ước version (SemVer): `MAJOR` khi thay đổi phá vỡ dữ liệu cũ, `MINOR` khi thêm tính năng, `PATCH` khi sửa lỗi.
 
