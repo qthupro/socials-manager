@@ -27,4 +27,4 @@ writeFileSync(cargoPath, cargo.replace(/^version = ".*"$/m, `version = "${versio
 console.log(`Version set to ${version}. Next:
   1. Update CHANGELOG.md
   2. git commit -am "chore: release v${version}"
-  3. git tag v${version} && git push --follow-tags`);
+  3. git tag v${version} && git push && git push origin v${version}`);

@@ -129,7 +129,7 @@ Khi đổi cấu trúc dữ liệu đã lưu: tăng `version` và viết `migrat
 1. `pnpm version:bump 0.2.0`
 2. Cập nhật `CHANGELOG.md`
 3. `git commit -am "chore: release v0.2.0"`
-4. `git tag v0.2.0 && git push --follow-tags`
+4. `git tag v0.2.0 && git push && git push origin v0.2.0`
 
 GitHub Actions (`.github/workflows/release.yml`) sẽ build installer Windows / macOS / Linux và tạo **draft release**. Vào tab Releases kiểm tra rồi bấm Publish.
 
