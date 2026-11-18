@@ -5,6 +5,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versioning: [S
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-18
+
+### Added
+
+- Branded Windows installer: setup file icon, NSIS header/sidebar and MSI banner/dialog artwork.
+- MIT license, download instructions, code signing and privacy policy in README.
+
 ## [0.1.0] - 2026-11-17
 
 ### Added

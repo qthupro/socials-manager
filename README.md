@@ -3,6 +3,17 @@
 Ứng dụng desktop offline: **Tauri 2 (Rust)** + **React 19** + **Tailwind CSS 4** + **shadcn/ui**.
 Không login, không backend — dữ liệu lưu trong `localStorage` của app.
 
+## Tải về
+
+Tải bản mới nhất ở trang [Releases](https://github.com/qthupro/socials-manager/releases/latest):
+
+- **Windows:** `Social.Manager_x.y.z_x64-setup.exe` (khuyên dùng) hoặc `.msi`
+- **macOS:** `.dmg` (`aarch64` cho Apple Silicon, `x64` cho Intel)
+- **Linux:** `.AppImage`, `.deb` hoặc `.rpm`
+
+> Nếu Windows hiện **"Windows protected your PC"**: bấm **More info → Run anyway**. Cảnh báo này xuất hiện
+> vì bản cài chưa được ký số; dự án đang đăng ký ký số miễn phí qua SignPath Foundation.
+
 ## Yêu cầu
 
 - Node.js LTS + pnpm
@@ -123,3 +134,24 @@ Khi đổi cấu trúc dữ liệu đã lưu: tăng `version` và viết `migrat
 GitHub Actions (`.github/workflows/release.yml`) sẽ build installer Windows / macOS / Linux và tạo **draft release**. Vào tab Releases kiểm tra rồi bấm Publish.
 
 Quy ước version (SemVer): `MAJOR` khi thay đổi phá vỡ dữ liệu cũ, `MINOR` khi thêm tính năng, `PATCH` khi sửa lỗi.
+
+Ảnh của trình cài đặt (icon file setup, banner NSIS / MSI) nằm trong `src-tauri/icons/installer/`.
+
+## Code signing policy
+
+Free code signing provided by [SignPath.io](https://about.signpath.io/), certificate by [SignPath Foundation](https://signpath.org/).
+
+- Committers and reviewers: [qthupro](https://github.com/qthupro)
+- Approvers: [qthupro](https://github.com/qthupro)
+
+Every signed release is built from this repository by GitHub Actions; no locally built binaries are signed.
+
+## Privacy policy
+
+This program will not transfer any information to other networked systems unless specifically requested by the user or the person installing or operating it.
+
+The app only talks to services the user configures themselves (social platform accounts, the AI provider whose API key they enter, and their own optional Convex deployment). There is no telemetry or analytics, and nothing is sent to the author.
+
+## License
+
+[MIT](LICENSE)
