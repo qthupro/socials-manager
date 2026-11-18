@@ -5,6 +5,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versioning: [S
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-11-18
+
+### Changed
+
+- SocialAPI sign-up link shows the 50% discount (Settings and the in-app guide).
+- Windows-only builds; Vietnamese install guide in release notes and README.
+
 ## [0.1.1] - 2026-11-18
 
 ### Added

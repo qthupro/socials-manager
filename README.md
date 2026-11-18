@@ -11,6 +11,14 @@ App chỉ hỗ trợ **Windows 10/11 (64-bit)**. Tải bản mới nhất ở tr
 > Nếu Windows hiện **"Windows protected your PC"**: bấm **More info → Run anyway**. Cảnh báo này xuất hiện
 > vì bản cài chưa được ký số; dự án đang đăng ký ký số miễn phí qua SignPath Foundation.
 
+### Bắt đầu dùng
+
+App cần một **API key SocialAPI** để kết nối Facebook, Instagram, TikTok…
+👉 **[Đăng ký SocialAPI qua link này để được giảm 50%](https://social-api.ai?via=qthupro)** (tự động áp dụng, không cần mã),
+rồi tạo key trong dashboard và dán vào **Cài đặt → SocialAPI** trong app.
+
+Các bước còn lại (kết nối tài khoản, AI, Realtime) có trong mục **Hướng dẫn sử dụng** của app.
+
 ## Yêu cầu
 
 - Node.js LTS + pnpm

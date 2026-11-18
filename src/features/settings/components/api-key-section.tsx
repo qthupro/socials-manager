@@ -14,6 +14,15 @@ import { openExternal } from "@/shared/platform/opener";
 /** Where new users create a SocialAPI account (referral link). */
 export const SOCIAL_API_SIGNUP_URL = "https://social-api.ai?via=qthupro";
 
+/** Buying through SOCIAL_API_SIGNUP_URL applies this discount automatically. */
+export function SignupDiscountBadge() {
+  return (
+    <Badge className="h-4 bg-green-600 px-1.5 text-[10px] text-white">
+      Giảm 50% khi mua qua link này
+    </Badge>
+  );
+}
+
 const maskKey = (key: string) => `${key.slice(0, 13)}••••${key.slice(-4)}`;
 
 function KeyForm({ onDone }: { onDone?: () => void }) {
@@ -146,7 +155,8 @@ export function ApiKeySection() {
                   className="inline-flex items-center gap-1 text-primary underline-offset-2 hover:underline"
                 >
                   Đăng ký SocialAPI <ExternalLink className="size-3" />
-                </button>
+                </button>{" "}
+                <SignupDiscountBadge />
               </>
             }
           />

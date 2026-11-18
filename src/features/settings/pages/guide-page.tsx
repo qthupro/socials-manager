@@ -23,7 +23,7 @@ import { Button } from "@/shared/components/ui/button";
 import { cn } from "@/shared/lib/utils";
 import { openExternal } from "@/shared/platform/opener";
 
-import { SOCIAL_API_SIGNUP_URL } from "../components/api-key-section";
+import { SignupDiscountBadge, SOCIAL_API_SIGNUP_URL } from "../components/api-key-section";
 
 interface Step {
   title: string;
@@ -129,7 +129,8 @@ export function GuidePage() {
           >
             Đăng ký SocialAPI <ExternalLink className="size-3" />
           </button>{" "}
-          (nếu chưa có tài khoản), tạo key trong dashboard rồi dán vào Cài đặt → SocialAPI.
+          <SignupDiscountBadge /> (nếu chưa có tài khoản), tạo key trong dashboard rồi dán vào Cài
+          đặt → SocialAPI.
         </>
       ),
       doneHint: me.data ? `Đã kết nối: ${me.data.email}` : undefined,
