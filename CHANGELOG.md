@@ -5,6 +5,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versioning: [S
 
 ## [Unreleased]
 
+## [0.1.4] - 2026-11-19
+
 ### Added
 
 - "Tham gia nhóm" button next to Donate, opening the TMMO Community Facebook group.
