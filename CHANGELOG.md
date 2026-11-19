@@ -5,6 +5,14 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versioning: [S
 
 ## [Unreleased]
 
+### Added
+
+- "Tham gia nhóm" button next to Donate, opening the TMMO Community Facebook group.
+
+### Changed
+
+- Sidebar footer shows the developer's photo instead of initials.
+
 ## [0.1.3] - 2026-11-19
 
 ### Added

@@ -186,9 +186,11 @@ export function AppSidebar() {
             title="Thông tin phần mềm & nhà phát triển"
             className="flex w-full items-center gap-2 rounded-md p-1 text-left transition-colors group-data-[collapsible=icon]:justify-center hover:bg-sidebar-accent"
           >
-            <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[10px] font-semibold text-primary">
-              QT
-            </span>
+            <img
+              src={DEVELOPER.avatar}
+              alt=""
+              className="size-6 shrink-0 rounded-full bg-white object-cover ring-1 ring-border"
+            />
             <span className="min-w-0 flex-1 truncate text-xs text-muted-foreground group-data-[collapsible=icon]:hidden">
               {DEVELOPER.name}
             </span>
