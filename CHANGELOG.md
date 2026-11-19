@@ -5,6 +5,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versioning: [S
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-11-19
+
+### Added
+
+- Welcome screen on the Overview page until an API key is set and an account is connected: setup steps with progress and a feature tour.
+
 ## [0.1.2] - 2026-11-18
 
 ### Changed

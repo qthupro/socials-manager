@@ -11,10 +11,12 @@ import {
   useAnalyticsOverview,
   type OverviewParams,
 } from "@/features/analytics";
+import { useAccounts } from "@/features/connections";
 import { useEventsSummary } from "@/features/developer";
+import { useApiKey } from "@/shared/api";
 import { PageHeader } from "@/shared/components/page-header";
 import { PlatformIcon } from "@/shared/components/platform-icon";
-import { ErrorState, RequireApiKey } from "@/shared/components/state-views";
+import { ErrorState } from "@/shared/components/state-views";
 import { Button } from "@/shared/components/ui/button";
 import {
   Select,
@@ -26,6 +28,8 @@ import {
 import { Skeleton } from "@/shared/components/ui/skeleton";
 import { getPlatform } from "@/shared/config/platforms";
 import { cn } from "@/shared/lib/utils";
+
+import { WelcomeOnboarding } from "../components/welcome-onboarding";
 
 const RANGES = [
   { value: "7", label: "7 ngày qua" },
@@ -293,11 +297,28 @@ function DashboardContent() {
  * SocialAPI endpoints for this screen:
  *   GET /analytics/overview
  *   GET /events/summary
+ *   GET /accounts (welcome screen until one is connected)
  */
 export function DashboardPage() {
-  return (
-    <RequireApiKey>
-      <DashboardContent />
-    </RequireApiKey>
-  );
+  const hasApiKey = useApiKey((s) => !!s.apiKey);
+  const accounts = useAccounts(undefined, { enabled: hasApiKey });
+
+  if (hasApiKey && accounts.isLoading) {
+    return (
+      <div className="space-y-5">
+        <Skeleton className="h-10 w-64 rounded-lg" />
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {[0, 1, 2, 3].map((i) => (
+            <Skeleton key={i} className="h-[106px] rounded-xl" />
+          ))}
+        </div>
+      </div>
+    );
+  }
+  // A failed accounts call (bad key, offline) falls through to the dashboard's own error state.
+  const hasAccounts = (accounts.data?.length ?? 0) > 0;
+  if (!hasApiKey || (accounts.isSuccess && !hasAccounts)) {
+    return <WelcomeOnboarding hasApiKey={hasApiKey} hasAccounts={hasAccounts} />;
+  }
+  return <DashboardContent />;
 }

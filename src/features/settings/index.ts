@@ -26,3 +26,6 @@ export const settingsFeature: FeatureModule = {
     { label: "Cài đặt", path: "/settings", icon: Settings, group: "system", order: 20 },
   ],
 };
+
+// Shared with the dashboard welcome screen.
+export { SignupDiscountBadge, SOCIAL_API_SIGNUP_URL } from "./components/api-key-section";
